@@ -157,7 +157,13 @@ class LanguageSwitcher {
 }
 
 // Инициализация
-document.addEventListener('DOMContentLoaded', () => {
-    const langSwitcher = new LanguageSwitcher();
-    langSwitcher.init();
+document.addEventListener('DOMContentLoaded', function () {
+    // Находим все картинки с классом example-image-link
+    const galleryImages = document.querySelectorAll('.example-image-link');
+
+    galleryImages.forEach(img => {
+        img.addEventListener('click', function (e) {
+            e.preventDefault(); // отменяем открытие ссылки
+        });
+    });
 });
