@@ -357,3 +357,48 @@ body:after {
             filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
             opacity: 1;
         }
+
+/* Стили для снега на главной странице */
+.snow-main {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    z-index: -1;
+}
+
+
+.snow-alt {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    z-index: -1;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .snow-main {
+        bottom: 10px;
+        max-height: 180px;
+    }
+
+    .snow-alt {
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .snow-main {
+        bottom: 5px;
+        max-height: 120px;
+    }
+
+    .snow-results {
+        max-height: 80px;
+    }
+}
