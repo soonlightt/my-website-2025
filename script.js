@@ -1,13 +1,14 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     // Находим все кнопки меню
     const menuButtons = document.querySelectorAll('.btn-menuw, .btn-menur');
 
     // 1. Эффект при наведении
     menuButtons.forEach(button => {
+        button.style.transition = 'all 0.3s ease';
+
         // Наведение
         button.addEventListener('mouseenter', function () {
             this.style.transform = 'scale(1.1) translateY(-5px)';
-            this.style.transition = 'all 0.3s ease';
             this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
         });
 
@@ -22,6 +23,7 @@
             this.style.transform = 'scale(0.95)';
         });
 
+        // Отпускание
         button.addEventListener('mouseup', function () {
             this.style.transform = 'scale(1.1) translateY(-5px)';
         });
@@ -39,12 +41,10 @@
         }, index * 100);
     });
 
-    // 3. Новогодний звук при клике (опционально)
+    // 3. Клик — БЕЗ снежинок и без ошибок
     menuButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-            if (Math.random() > 0.5) {
-                createSnowflakes(this);
-            }
+        button.addEventListener('click', function () {
+            // ничего не делаем — убрали ошибочный вызов
         });
     });
 });
@@ -75,7 +75,8 @@ class LanguageSwitcher {
                 'pass-license': 'Pass your license',
                 'events-title': 'Top events of 2025',
                 'results-title': 'Results 2025',
-                'results-comments': 'It\'s the second half of December this year, so I want to take stock. This year has had many memorable moments, both good and bad. Most importantly, I\'ve always had top players by my side who somehow supported me. I officially consider 2025 the beginning of my prime era.'
+                'results-comments':
+                    'It\'s the second half of December this year, so I want to take stock. This year has had many memorable moments, both good and bad. Most importantly, I\'ve always had top players by my side who somehow supported me. I officially consider 2025 the beginning of my prime era.'
             },
             ru: {
                 'home': 'главная',
@@ -98,7 +99,8 @@ class LanguageSwitcher {
                 'pass-license': 'Сдать на права',
                 'events-title': 'Лучшие события 2025',
                 'results-title': 'Итоги 2025',
-                'results-comments': 'Уже вторая половина декабря этого года, поэтому хочу подвести итоги. Этот год запомнился множеством моментов, как хороших, так и плохих. Главное, что рядом всегда были топовые игроки, которые как-то поддерживали. Официально считаю 2025 год началом моей прайм-эры.'
+                'results-comments':
+                    'Уже вторая половина декабря этого года, поэтому хочу подвести итоги. Этот год запомнился множеством моментов, как хороших, так и плохих. Главное, что рядом всегда были топовые игроки, которые как-то поддерживали. Официально считаю 2025 год началом моей прайм-эры.'
             }
         };
     }
@@ -123,7 +125,7 @@ class LanguageSwitcher {
             border-radius: 20px;
             cursor: pointer;
             z-index: 1000;
-            font-family: 'Mountains of Christmas', cursive;
+            font-family: cursive;
             font-size: 18px;
         `;
 
@@ -140,7 +142,6 @@ class LanguageSwitcher {
     }
 
     applyLanguage() {
-        // Обновляем текст по data-key атрибутам
         document.querySelectorAll('[data-key]').forEach(el => {
             const key = el.dataset.key;
             if (this.translations[this.currentLang][key]) {
@@ -148,14 +149,14 @@ class LanguageSwitcher {
             }
         });
 
-        // Обновляем title страницы
-        document.title = this.currentLang === 'en'
-            ? 'Results of 2025'
-            : 'Итоги 2025 года';
+        document.title =
+            this.currentLang === 'en'
+                ? 'Results of 2025'
+                : 'Итоги 2025 года';
     }
 }
 
-// Инициализация при загрузке страницы
+// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
     const langSwitcher = new LanguageSwitcher();
     langSwitcher.init();
