@@ -3,7 +3,7 @@
     #1e6fd9
     );
     min-height: 90vh;
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: "Times New Roman", Georgia, serif;
     margin: 0;
     padding: 20px;
     text-align: center;
@@ -22,7 +22,7 @@ iframe {
 }
 .main-name {
     color: crimson;
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: "Times New Roman", Georgia, serif;
     font-size: 110px;
     margin-top: -70px;
 }
@@ -35,7 +35,7 @@ iframe {
     cursor: pointer;
     display: inline-block;
     font-size: 26px;
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: "Times New Roman", Georgia, serif;
     transition: all 0.3s ease;
     margin: 5px;
 }
@@ -54,7 +54,7 @@ iframe {
 
 h2 {
     color: crimson;
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: "Times New Roman", Georgia, serif;
     font-size: 58px;
     margin-top: 0px;
     margin-bottom: 10px;
@@ -64,7 +64,7 @@ h2 {
 .list {
     text-align: center;
     margin: 10px auto 100px;
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: "Times New Roman", Georgia, serif;
 }
 
     .list h3 {
@@ -401,4 +401,5 @@ body:after {
     .snow-results {
         max-height: 80px;
     }
+
 }
